@@ -30,7 +30,7 @@
     "cssesc": "^3.0.0",
     "del-cli": "^7.0.0",
     "focus-visible": "^5.2.0",
-    "html-minifier": "^4.0.0",
+    "html-minifier-next": "^2.1.5",
     "lodash": "^4.17.21",
     "luxon": "^3.7.2",
     "markdown-it": "^14.1.0",
