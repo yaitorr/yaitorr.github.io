@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - node-sass
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - puppeteer
