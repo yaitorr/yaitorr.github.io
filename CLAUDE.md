@@ -17,7 +17,7 @@ This is an 11ty (Eleventy) static site generator project for creating a personal
 
 ### Architecture Notes
 
-- **Entry point**: `.eleventy.js` - Main Eleventy configuration
+- **Entry point**: `eleventy.config.js` - Main Eleventy configuration
 - **Content structure**: Resume content is organized in `src/entries/` with separate folders for `work`, `education`, and `content`
 - **Data files**: Personal information stored in `src/data/author.json`
 - **Templates**: Nunjucks layouts in `src/layouts/`, includes in `src/includes/`
