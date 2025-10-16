@@ -12,6 +12,7 @@ export default {
             'reddit',
             'slack',
             'whatsapp',
+            'mastodon',
         ];
         if (isSocial && !availableSocialIcons.includes(id)) {
             return `<span aria-hidden="true">${name}:&nbsp;</span>`;
