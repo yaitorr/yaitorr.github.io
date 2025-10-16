@@ -1,37 +1,33 @@
 {
-    "name": "Anna Quincey",
-    "occupation": "Front-End Developer",
-    "location": "Vienna, AT",
+    "name": "Yaisiel (Yai) Torres",
+    "occupation": "Engineering Manager",
+    "location": "Springfield, VA",
     "avatar": "avatar.jpg",
-    "pronouns": "she/her",
-    "email": "anna.quincey@gmail.com",
-    "telephone": "+01 23 456 789",
-    "website": "https://annaquincey.dev",
-    "skills": ["HTML", "CSS", "Javascript / ES6", "UI Design", "React", "Git"],
+    "pronouns": "he/him",
+    "email": "yaisiel.torres@icloud.com",
+    "telephone": "+1 470 214 7396",
+    "website": "https://www.yaitorr.me",
+    "skills": ["Javascript / ES6", "React", "Node", "CSS3", "HTML", "Cloud Computing (S3)", "Agile Methodologies"],
     "languages": [
         {
-            "name": "English",
+            "name": "Spanish",
             "level": "native"
         },
         {
-            "name": "German",
+            "name": "English",
             "level": "fluent"
-        },
-        {
-            "name": "French",
-            "level": "basic"
         }
     ],
     "social": [
         {
-            "name": "Github",
-            "user": "@annaquincey",
-            "url": "https://github.com/annaquincey"
+            "name": "LinkedIn",
+            "user": "yaisieltorres",
+            "url": "https://www.linkedin.com/in/yaisieltorres/"
         },
         {
-            "name": "LinkedIn",
-            "user": "AnnaQncy",
-            "url": "https://www.linkedin.com/in/annaquincey"
+            "name": "Mastodon",
+            "user": "@yaitorr@dmv.community",
+            "url": "https://dmv.community/@yaitorr"
         }
     ]
 }
