@@ -1,9 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const util = require('util');
-const glob = require('glob');
-const File = require('vinyl');
-const SVGSpriter = require('svg-sprite');
+import fs from 'fs';
+import path from 'path';
+import { glob } from 'glob';
+import File from 'vinyl';
+import SVGSpriter from 'svg-sprite';
 
 const cwd = path.resolve('src/assets/icons');
 const spriteConfig = {
@@ -26,7 +25,7 @@ const spriteConfig = {
     },
 };
 
-module.exports = async () => {
+export default async () => {
     // Make a new SVGSpriter instance w/ configuration
     const spriter = new SVGSpriter(spriteConfig);
 
@@ -43,8 +42,7 @@ module.exports = async () => {
     };
 
     // Get all SVG icon files in working directory
-    const getFiles = util.promisify(glob);
-    const files = await getFiles('**/*.svg', { cwd: cwd });
+    const files = await glob('**/*.svg', { cwd: cwd });
 
     // Add them all to the spriter
     files.forEach(function (file) {

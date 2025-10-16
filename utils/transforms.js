@@ -1,5 +1,5 @@
-const htmlmin = require('html-minifier');
-const critical = require('critical');
+import htmlmin from 'html-minifier-next';
+import * as critical from 'critical';
 const buildDir = 'dist';
 
 const shouldTransformHTML = (outputPath) =>
@@ -10,7 +10,7 @@ const shouldTransformHTML = (outputPath) =>
 const isHomePage = (outputPath) => outputPath === `${buildDir}/index.html`;
 
 process.setMaxListeners(Infinity);
-module.exports = {
+export default {
     htmlmin: function (content, outputPath) {
         if (shouldTransformHTML(outputPath)) {
             return htmlmin.minify(content, {

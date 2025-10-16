@@ -1,12 +1,12 @@
-const pluginRss = require('@11ty/eleventy-plugin-rss');
-const markdownIt = require('markdown-it');
+import pluginRss from '@11ty/eleventy-plugin-rss';
+import markdownIt from 'markdown-it';
 
-const filters = require('./utils/filters.js');
-const transforms = require('./utils/transforms.js');
-const shortcodes = require('./utils/shortcodes.js');
-const iconsprite = require('./utils/iconsprite.js');
+import filters from './utils/filters.js';
+import transforms from './utils/transforms.js';
+import shortcodes from './utils/shortcodes.js';
+import iconsprite from './utils/iconsprite.js';
 
-module.exports = function (config) {
+export default function (config) {
     // Plugins
     config.addPlugin(pluginRss);
 
@@ -89,4 +89,4 @@ module.exports = function (config) {
         htmlTemplateEngine: 'njk',
         markdownTemplateEngine: 'njk',
     };
-};
+}

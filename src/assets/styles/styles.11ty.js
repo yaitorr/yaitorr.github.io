@@ -4,13 +4,18 @@
 // main entry point name
 const ENTRY_FILE_NAME = 'main.scss';
 
-const path = require('path');
-const sass = require('sass');
-const CleanCSS = require('clean-css');
-const cssesc = require('cssesc');
+import path from 'path';
+import { fileURLToPath } from 'url';
+import * as sass from 'sass';
+import CleanCSS from 'clean-css';
+import cssesc from 'cssesc';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const isProd = process.env.ELEVENTY_ENV === 'production';
 
-module.exports = class {
+export default class {
     async data() {
         const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`);
         return {
@@ -124,4 +129,4 @@ module.exports = class {
             }
         }
     }
-};
+}

@@ -1,10 +1,14 @@
-const fs = require('fs');
-const path = require('path');
-const mime = require('mime/lite');
-const { DateTime } = require('luxon');
-const isEmpty = require('lodash/isEmpty');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import mime from 'mime/lite';
+import { DateTime } from 'luxon';
+import isEmpty from 'lodash/isEmpty.js';
 
-module.exports = {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+export default {
     dateToFormat: function (date, format) {
         return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat(
             String(format),
