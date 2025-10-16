@@ -1,3 +1,6 @@
+@use '../utils/mixins' as *;
+@use 'bulletlist' as *;
+
 .markdown {
     > * + * {
         margin-top: 1rem;

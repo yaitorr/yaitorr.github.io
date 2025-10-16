@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .vcard {
     display: flex;
     flex-wrap: wrap;

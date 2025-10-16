@@ -1,3 +1,6 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
 .section {
     padding-top: $spacing-y;
     padding-bottom: $spacing-y;

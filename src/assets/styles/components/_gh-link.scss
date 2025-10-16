@@ -1,3 +1,5 @@
+@use '../utils/mixins' as *;
+
 .gh-link {
     @include mq(lg) {
         display: block;
