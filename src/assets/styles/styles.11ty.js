@@ -2,22 +2,22 @@
 // It will run Sass and compile all styles defined in the main entry file.
 
 // main entry point name
-const ENTRY_FILE_NAME = 'main.scss'
+const ENTRY_FILE_NAME = 'main.scss';
 
-const path = require('path')
-const sass = require('sass')
-const CleanCSS = require('clean-css')
-const cssesc = require('cssesc')
-const isProd = process.env.ELEVENTY_ENV === 'production'
+const path = require('path');
+const sass = require('sass');
+const CleanCSS = require('clean-css');
+const cssesc = require('cssesc');
+const isProd = process.env.ELEVENTY_ENV === 'production';
 
 module.exports = class {
     async data() {
-        const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`)
+        const entryPath = path.join(__dirname, `/${ENTRY_FILE_NAME}`);
         return {
             permalink: `/assets/styles/main.css`,
             eleventyExcludeFromCollections: true,
-            entryPath
-        }
+            entryPath,
+        };
     }
 
     // Compile Sass to CSS,
@@ -27,37 +27,37 @@ module.exports = class {
             try {
                 const options = {
                     ...config,
-                    loadPaths: [path.dirname(config.file)]
-                }
+                    loadPaths: [path.dirname(config.file)],
+                };
 
                 if (!isProd) {
-                    options.sourceMap = true
-                    options.sourceMapIncludeSources = true
-                    options.style = 'expanded'
+                    options.sourceMap = true;
+                    options.sourceMapIncludeSources = true;
+                    options.style = 'expanded';
                 } else {
-                    options.style = 'compressed'
+                    options.style = 'compressed';
                 }
 
-                const result = sass.compile(config.file, options)
-                resolve(result.css)
+                const result = sass.compile(config.file, options);
+                resolve(result.css);
             } catch (err) {
-                reject(err)
+                reject(err);
             }
-        })
+        });
     }
 
     // Minify & Optimize with CleanCSS in Production
     async minify(css) {
         return new Promise((resolve, reject) => {
             if (!isProd) {
-                resolve(css)
+                resolve(css);
             }
-            const minified = new CleanCSS().minify(css)
+            const minified = new CleanCSS().minify(css);
             if (!minified.styles) {
-                return reject(minified.error)
+                return reject(minified.error);
             }
-            resolve(minified.styles)
-        })
+            resolve(minified.styles);
+        });
     }
 
     // display an error overlay when CSS build fails.
@@ -102,26 +102,26 @@ module.exports = class {
             background: #f8d7da;
             border: solid 2px red;
             position: fixed;
-        }`
+        }`;
     }
 
     // render the CSS file
     async render({ entryPath }) {
         try {
-            const css = await this.compile({ file: entryPath })
-            const result = await this.minify(css)
-            return result
+            const css = await this.compile({ file: entryPath });
+            const result = await this.minify(css);
+            return result;
         } catch (err) {
             // if things go wrong
             if (isProd) {
                 // throw and abort in production
-                throw new Error(err)
+                throw new Error(err);
             } else {
                 // otherwise display the error overlay
-                console.error(err)
-                const msg = err.formatted || err.message
-                return this.renderError(msg)
+                console.error(err);
+                const msg = err.formatted || err.message;
+                return this.renderError(msg);
             }
         }
     }
-}
+};

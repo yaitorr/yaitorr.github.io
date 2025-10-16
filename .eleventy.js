@@ -1,35 +1,35 @@
-const pluginRss = require('@11ty/eleventy-plugin-rss')
-const markdownIt = require('markdown-it')
+const pluginRss = require('@11ty/eleventy-plugin-rss');
+const markdownIt = require('markdown-it');
 
-const filters = require('./utils/filters.js')
-const transforms = require('./utils/transforms.js')
-const shortcodes = require('./utils/shortcodes.js')
-const iconsprite = require('./utils/iconsprite.js')
+const filters = require('./utils/filters.js');
+const transforms = require('./utils/transforms.js');
+const shortcodes = require('./utils/shortcodes.js');
+const iconsprite = require('./utils/iconsprite.js');
 
 module.exports = function (config) {
     // Plugins
-    config.addPlugin(pluginRss)
+    config.addPlugin(pluginRss);
 
     // Filters
     Object.keys(filters).forEach((filterName) => {
-        config.addFilter(filterName, filters[filterName])
-    })
+        config.addFilter(filterName, filters[filterName]);
+    });
 
     // Transforms
     Object.keys(transforms).forEach((transformName) => {
-        config.addTransform(transformName, transforms[transformName])
-    })
+        config.addTransform(transformName, transforms[transformName]);
+    });
 
     // Shortcodes
     Object.keys(shortcodes).forEach((shortcodeName) => {
-        config.addShortcode(shortcodeName, shortcodes[shortcodeName])
-    })
+        config.addShortcode(shortcodeName, shortcodes[shortcodeName]);
+    });
 
     // Icon Sprite
-    config.addNunjucksAsyncShortcode('iconsprite', iconsprite)
+    config.addNunjucksAsyncShortcode('iconsprite', iconsprite);
 
     // Asset Watch Targets
-    config.addWatchTarget('./src/assets')
+    config.addWatchTarget('./src/assets');
 
     // Markdown
     config.setLibrary(
@@ -38,43 +38,43 @@ module.exports = function (config) {
             html: true,
             breaks: true,
             linkify: true,
-            typographer: true
-        })
-    )
+            typographer: true,
+        }),
+    );
 
     // Layouts
-    config.addLayoutAlias('base', 'base.njk')
-    config.addLayoutAlias('resume', 'resume.njk')
+    config.addLayoutAlias('base', 'base.njk');
+    config.addLayoutAlias('resume', 'resume.njk');
 
     // Collections
-    const collections = ['work', 'education']
+    const collections = ['work', 'education'];
     collections.forEach((name) => {
         config.addCollection(name, function (collection) {
-            const folderRegex = new RegExp(`\/${name}\/`)
+            const folderRegex = new RegExp(`\/${name}\/`);
             const inEntryFolder = (item) =>
-                item.inputPath.match(folderRegex) !== null
+                item.inputPath.match(folderRegex) !== null;
 
             const byStartDate = (a, b) => {
                 if (a.data.start && b.data.start) {
-                    return a.data.start - b.data.start
+                    return a.data.start - b.data.start;
                 }
-                return 0
-            }
+                return 0;
+            };
 
             return collection
                 .getAllSorted()
                 .filter(inEntryFolder)
-                .sort(byStartDate)
-        })
-    })
+                .sort(byStartDate);
+        });
+    });
 
     // Pass-through files
-    config.addPassthroughCopy('src/robots.txt')
-    config.addPassthroughCopy('src/assets/images')
-    config.addPassthroughCopy('src/assets/fonts')
+    config.addPassthroughCopy('src/robots.txt');
+    config.addPassthroughCopy('src/assets/images');
+    config.addPassthroughCopy('src/assets/fonts');
 
     // Deep-Merge
-    config.setDataDeepMerge(true)
+    config.setDataDeepMerge(true);
 
     // Base Config
     return {
@@ -83,10 +83,10 @@ module.exports = function (config) {
             output: 'dist',
             includes: 'includes',
             layouts: 'layouts',
-            data: 'data'
+            data: 'data',
         },
         templateFormats: ['njk', 'md', '11ty.js'],
         htmlTemplateEngine: 'njk',
-        markdownTemplateEngine: 'njk'
-    }
-}
+        markdownTemplateEngine: 'njk',
+    };
+};
