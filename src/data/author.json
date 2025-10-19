@@ -7,7 +7,24 @@
     "email": "yaisiel.torres@icloud.com",
     "telephone": "+1 470 214 7396",
     "website": "https://www.yaitorr.me",
-    "skills": ["Javascript / ES6", "React", "Node", "MySQL", "CSS3", "HTML", "Cloud Computing (S3)", "Git", "Agile Methodologies"],
+    "skills": [
+        "Javascript / ES6",
+        "React",
+        "Node.js",
+        "MySQL",
+        "CSS3",
+        "HTML5",
+        "SASS",
+        "Playwright",
+        "React Testing Library",
+        "Git",
+        "Bash Scripting",
+        "Claude Code",
+        "Oracle Cloud Infrastructure (OCI)",
+        "CI/CD pipelines (Jenkins)",
+        "REST APIs",
+        "Agile Methodologies"
+    ],
     "languages": [
         {
             "name": "Spanish",
