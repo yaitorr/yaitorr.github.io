@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Tutor for Every Student — FCPS Policy Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark-teal: #00677F;
+    --teal: #00A2BC;
+    --light-teal: #E0F5F9;
+    --gold: #FFB500;
+    --gold-light: #FFF7DC;
+    --gray: #747679;
+    --gray-light: #F5F5F5;
+    --white: #ffffff;
+    --ink: #1A1A1A;
+    --ink-muted: #3D3D3D;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    --page-pad: 0.5in;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    font-size: 10.5pt;
+    line-height: 1.65;
+    color: var(--ink);
+    background: #e8e8e8;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 8.5in;
+    margin: 0.35in auto;
+    background: var(--white);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+  }
+
+  /* ── HEADER ── */
+  .brief-header {
+    background: var(--dark-teal);
+    display: grid;
+    grid-template-columns: 7px 1fr;
+  }
+  .header-accent { background: var(--gold); }
+  .header-content { padding: 2rem var(--page-pad) 1.7rem; }
+
+  .header-eyebrow {
+    font-size: 7.5pt;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.55rem;
+  }
+  .header-title {
+    font-family: var(--serif);
+    font-size: 24pt;
+    font-weight: 700;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 0.3rem;
+  }
+  .header-subtitle-italic {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 11pt;
+    color: rgba(255,255,255,0.88);
+    margin-bottom: 0.9rem;
+  }
+  .header-meta {
+    font-size: 8.5pt;
+    font-weight: 300;
+    color: rgba(255,255,255,0.87);
+    display: flex;
+    gap: 0.2rem 1.6rem;
+    flex-wrap: wrap;
+  }
+  .header-meta span { display: flex; align-items: center; gap: 5px; }
+  .header-meta span + span::before { content: '·'; opacity: 0.5; }
+
+  /* ── BODY ── */
+  .brief-body {
+    padding: 0 var(--page-pad) 2rem;
+  }
+
+  /* ── EXEC SUMMARY ── */
+  .exec-summary {
+    background: var(--light-teal);
+    border-left: 4px solid var(--dark-teal);
+    padding: 1rem 1.3rem;
+    margin: 1.6rem 0 0;
+  }
+  .exec-label {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--dark-teal);
+    margin-bottom: 0.4rem;
+  }
+  .exec-summary p { font-size: 9.5pt; line-height: 1.62; color: var(--ink); margin-bottom: 0.4rem; }
+  .exec-summary p:last-child { margin-bottom: 0; }
+
+  /* ── SECTION HEADINGS ── */
+  h2 {
+    font-family: var(--serif);
+    font-size: 13.5pt;
+    font-weight: 700;
+    color: var(--dark-teal);
+    margin: 1.6rem 0 0.55rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1.5px solid var(--dark-teal);
+  }
+
+  h3 {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--dark-teal);
+    margin: 1rem 0 0.3rem;
+    letter-spacing: 0.01em;
+    page-break-after: avoid;
+  }
+
+  /* ── BODY COPY ── */
+  p {
+    font-size: 10pt;
+    color: var(--ink-muted);
+    margin-bottom: 0.6rem;
+    line-height: 1.68;
+  }
+
+  /* ── CALLOUT (used sparingly) ── */
+  .callout {
+    border: 1px solid var(--gold);
+    background: var(--gold-light);
+    padding: 0.85rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .callout-label {
+    font-size: 7pt;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7A5400;
+    margin-bottom: 0.35rem;
+  }
+  .callout p { font-size: 9.5pt; color: #4A3100; margin: 0; }
+
+  /* ── STAT STRIP ── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin: 1.1rem 0;
+    border: 1px solid #b0b0b0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .stat-cell {
+    padding: 1rem 1.4rem;
+    border-right: 1px solid #b0b0b0;
+    text-align: center;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-cell:first-child { background: var(--dark-teal); }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.1;
+    display: block;
+  }
+  .stat-cell:not(:first-child) .stat-num { color: var(--dark-teal); }
+  .stat-desc {
+    font-size: 8.5pt;
+    line-height: 1.45;
+    color: rgba(255,255,255,0.82);
+    display: block;
+    margin-top: 4px;
+  }
+  .stat-cell:not(:first-child) .stat-desc { color: var(--ink-muted); }
+
+  /* ── TABLE + VDOE GROUP ── */
+  .table-vdoe-group {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* ── COMPARE TABLE ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin: 0.7rem 0;
+  }
+  .compare-table thead tr { background: var(--dark-teal); color: white; }
+  .compare-table thead th {
+    padding: 7px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8.5pt;
+    letter-spacing: 0.03em;
+  }
+  .compare-table tbody tr:nth-child(even) { background: var(--gray-light); }
+  .compare-table tbody td {
+    padding: 6px 12px;
+    color: var(--ink-muted);
+    vertical-align: top;
+    border-bottom: 1px solid #e4e4e4;
+    line-height: 1.45;
+  }
+  .compare-table tbody td:first-child {
+    font-weight: 600;
+    color: var(--dark-teal);
+    width: 18%;
+  }
+  .tag-hi {
+    display: inline-block;
+    background: #FDEAEA;
+    color: #8B1E1E;
+    font-size: 6.5pt;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 4px;
+  }
+  .tag-lo {
+    display: inline-block;
+    background: #E5F4EB;
+    color: #1A6335;
+    font-size: 6.5pt;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 4px;
+  }
+
+  /* ── VDOE PRINCIPLES ── */
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+    margin: 0.6rem 0 0;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .principle-card {
+    border-top: 3px solid var(--dark-teal);
+    padding: 0.7rem 0.9rem;
+    background: var(--gray-light);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .principle-card h3 {
+    font-size: 9pt;
+    margin: 0 0 0.3rem;
+    color: var(--dark-teal);
+    letter-spacing: 0;
+  }
+  .principle-card p {
+    font-size: 8.5pt;
+    margin: 0;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ── POLICY OPTIONS ── */
+  .policy-options { margin: 0.8rem 0; }
+  .option-row {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e8e8e8;
+    align-items: start;
+  }
+  .policy-options-anchor .policy-options .option-row:first-child,
+  .policy-options .option-row:first-child { border-top: 1px solid #e8e8e8; }
+  .policy-options-cont .option-row:first-child { border-top: none; }
+  .option-num {
+    font-family: var(--serif);
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1;
+    text-align: right;
+    padding-right: 6px;
+    border-right: 2px solid var(--teal);
+  }
+  .option-body h3 {
+    font-size: 10pt;
+    color: var(--dark-teal);
+    margin: 0 0 0.3rem;
+    letter-spacing: 0;
+  }
+  .option-body p { font-size: 9.5pt; margin: 0; line-height: 1.6; }
+  .option-risk {
+    font-size: 8.5pt;
+    color: #7A4700;
+    background: var(--gold-light);
+    padding: 5px 10px;
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  /* ── RECOMMENDATIONS ── */
+  .rec-list { list-style: none; margin: 0.5rem 0 0.8rem; }
+  .rec-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.55rem;
+    font-size: 10pt;
+    color: var(--ink-muted);
+    line-height: 1.62;
+  }
+  .rec-num {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    background: var(--dark-teal);
+    color: white;
+    border-radius: 50%;
+    font-size: 8pt;
+    font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 2px;
+  }
+
+  /* ── REFERENCES ── */
+  .references { margin-top: 1.6rem; }
+  .ref-entry {
+    font-size: 9pt;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-bottom: 0.7rem;
+    padding-left: 1.4rem;
+    text-indent: -1.4rem;
+  }
+  .ref-entry a { color: var(--dark-teal); }
+
+  /* ── AI MEMO ── */
+  .memo-section { margin-top: 1.6rem; }
+  .memo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+    margin-top: 0.6rem;
+  }
+  .memo-table thead tr { background: var(--dark-teal); color: white; }
+  .memo-table thead th { padding: 7px 10px; text-align: left; font-weight: 600; font-size: 8.5pt; }
+  .memo-table tbody tr:nth-child(even) { background: var(--gray-light); }
+  .memo-table tbody td { padding: 7px 10px; color: var(--ink-muted); vertical-align: top; border-bottom: 1px solid #e4e4e4; line-height: 1.5; }
+  .memo-table tbody td:first-child { font-weight: 600; color: var(--dark-teal); width: 22%; }
+
+  /* ── FOOTNOTE ── */
+  .footnote {
+    font-size: 8pt;
+    color: var(--gray);
+    border-top: 1px solid #ddd;
+    padding-top: 0.5rem;
+    margin-top: 1.2rem;
+    line-height: 1.55;
+  }
+  .footnote a { color: var(--dark-teal); }
+
+  /* ── FOOTER ── */
+  .brief-footer {
+    border-top: 1px solid #ddd;
+    margin: 0 var(--page-pad);
+    padding: 0.65rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.5pt;
+    color: var(--gray);
+  }
+  .brief-footer strong { color: var(--dark-teal); }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0 0 1rem;
+    padding: 0.8rem 1rem;
+    background: var(--gray-light);
+    border-left: 4px solid var(--teal);
+  }
+  .tl-item {
+    display: flex;
+    gap: 0.9rem;
+    align-items: flex-start;
+  }
+  .tl-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .tl-marker {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--dark-teal);
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .tl-connector {
+    width: 2px;
+    flex: 1;
+    min-height: 16px;
+    background: var(--teal);
+    margin: 2px 0;
+    opacity: 0.4;
+  }
+  .tl-item.last .tl-connector { display: none; }
+  .tl-content {
+    padding-bottom: 0.65rem;
+    padding-top: 2px;
+  }
+  .tl-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dark-teal);
+    margin-bottom: 1px;
+  }
+  .tl-body {
+    font-size: 9pt;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+
+    /* Headings never strand alone */
+    h2, h3 { page-break-after: avoid; break-after: avoid; }
+
+    /* Block elements that must not split */
+    .exec-summary,
+    .stat-strip,
+    .principles-grid,
+    .principle-card,
+    .compare-table,
+    .option-row,
+    .policy-options,
+    .rec-list,
+    .callout,
+    .timeline,
+    .memo-table,
+    .ref-entry,
+    .footnote { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Keep h3 with whatever follows it */
+    h3 + p,
+    h3 + .principles-grid,
+    h3 + .compare-table,
+    h3 + table { page-break-before: avoid; break-before: avoid; }
+
+    /* Keep Policy Options heading anchored to first two options */
+    .policy-options-anchor { page-break-inside: avoid; break-inside: avoid; }
+    .policy-options-anchor h2 { page-break-after: avoid; break-after: avoid; }
+  }
+
+  /* ── RESPONSIVE (screen only) ── */
+  @media screen and (max-width: 900px) {
+    :root { --page-pad: 1.4rem; }
+
+    body { background: var(--white); font-size: 10pt; }
+
+    .page {
+      width: 100%;
+      margin: 0;
+      box-shadow: none;
+    }
+
+    .header-title { font-size: 20pt; }
+    .header-subtitle-italic { font-size: 10pt; }
+
+    .header-meta {
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .header-meta span + span::before { display: none; }
+
+    /* Stat strip: stack on narrow screens */
+    .stat-strip {
+      grid-template-columns: 1fr;
+    }
+    .stat-cell {
+      border-right: none;
+      border-bottom: 1px solid #b0b0b0;
+    }
+    .stat-cell:last-child { border-bottom: none; }
+
+    /* Principles grid: single column */
+    .principles-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Policy options: collapse number + body stacking */
+    .option-row {
+      grid-template-columns: 40px 1fr;
+      gap: 0 0.8rem;
+    }
+    .option-num { font-size: 20pt; }
+
+    /* Comparison table: allow horizontal scroll on small screens */
+    .compare-table,
+    .memo-table {
+      display: block;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      font-size: 8.5pt;
+    }
+
+    /* Footer: stack vertically */
+    .brief-footer {
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 7pt;
+      margin: 0 var(--page-pad);
+      padding: 0.8rem 0;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    :root { --page-pad: 1rem; }
+
+    .header-title { font-size: 17pt; }
+    .header-content { padding: 1.4rem var(--page-pad) 1.2rem; }
+
+    h2 { font-size: 12pt; }
+    h3 { font-size: 9pt; }
+
+    p, .exec-summary p, .option-body p {
+      font-size: 9.5pt;
+    }
+
+    /* Option numbers shrink further */
+    .option-row { grid-template-columns: 34px 1fr; }
+    .option-num { font-size: 17pt; }
+
+    .stat-num { font-size: 22pt; }
+
+    /* Rec list: tighten spacing */
+    .rec-list li { font-size: 9.5pt; }
+
+    /* Timeline padding */
+    .timeline { padding: 0.6rem 0.7rem; }
+
+    /* Ref entries: reduce hanging indent */
+    .ref-entry {
+      padding-left: 1rem;
+      text-indent: -1rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="brief-header">
+    <div class="header-accent"></div>
+    <div class="header-content">
+      <div class="header-eyebrow">Policy Brief · Fairfax County Public Schools Board of Education</div>
+      <div class="header-title">A Tutor for Every Student</div>
+      <div class="header-subtitle-italic">Leveraging AI to Democratize Personalized Learning in Fairfax County Public Schools</div>
+      <div class="header-meta">
+        <span>Yaisiel O. Torres-Vazquez</span>
+        <span>Purdue University · SCLA-52200</span>
+        <span>Dr. Jennifer Crosson</span>
+        <span>April 26, 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="brief-body">
+
+    <!-- EXEC SUMMARY -->
+    <div class="exec-summary">
+      <div class="exec-label">Executive Summary</div>
+      <p><strong>Core recommendation:</strong> Approve a four-part policy package to establish an evidence-based framework for deploying Intelligent Tutoring Systems in FCPS middle schools, prioritizing Title I schools, as a scalable and equitable alternative to general-purpose GenAI in the classroom.</p>
+      <p>Tutoring has been identified by experts as one of the most impactful pedagogical interventions in a child's education (Nickow et al., 2024) and, therefore, FCPS must act as innovative and cost-efficient modalities arrive. ITS implementations have demonstrated effectiveness in Socratic-method instruction, outperforming more traditional computerized tutoring systems (St-Hilaire et al., 2022, preprint), and hold strong potential for K-12 deployment at scale, capable of replacing systems like STMath and Lexia.</p>
+      <p>Purposefully designed ITS, compliant with student privacy law, piloted in controlled settings, and evaluated for equity outcomes, represents a responsible and high-value expansion of FCPS's current GenAI policy. Key recommendations include the discrete classification of GenAI tools, the creation of a community advisory committee for AI alignment, a pre-pilot governance framework, and authorization to organize academic partnerships to secure academic expertise and federal grant opportunities. All four are grounded in the policymaking and federally funded action of Washington State's Office of Superintendent of Public Instruction (OSPI) and Washington State University's AmplifyGAIN program, backed by the Institute of Education Sciences (IES). Given the existing tutoring gap and the risk of further isolating students from emerging personalized learning technologies, closing that gap is the board's responsibility, and this policy suite is the path to doing it responsibly.</p>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <h2>Introduction</h2>
+    <p>Access to personalized tutoring is one of the most consistently effective interventions in preK-12 education, with a meta-analysis of dozens of randomized experiments finding substantial positive learning effects across grade levels and student populations (Nickow et al., 2024). Yet in Fairfax County, as in most American school systems, high-quality tutoring has remained a private good, accessible primarily to the families with the time and resources to pay for it. Recent advances in Intelligent Tutoring Systems (ITS) offer a scalable, evidence-based path to extending that benefit equitably, at a cost and scope that no prior technology has made possible.</p>
+    <p>The FCPS Board has signaled its intention to engage with this opportunity. Through its <em>Meeting the Moment</em> initiative, the district has framed AI integration as a strategic priority for teaching, learning, and the future of work (Fairfax County School Board, n.d.). In practice, however, student-facing AI policy has not kept pace with that ambition: no framework currently exists for purpose-built learning tools like ITS (Stout, 2026). This brief argues for a formal classification of AI tools by risk level that recognizes ITS as a distinct and educationally valuable category and provides the board a framework for acting on it. Specifically, it recommends that the board authorize a middle school pilot program with explicit inclusion of Title I schools, supported by a governance structure that addresses FERPA and COPPA compliance, and criteria for scaling. Done well, this is how FCPS can genuinely meet the moment: not by restricting all AI broadly, but by deploying it purposefully where the evidence is strongest and the equity need is greatest.</p>
+
+    <!-- PROBLEM STATEMENT -->
+    <h2>Problem Statement</h2>
+    <p>High-quality tutoring is one of the most consistently effective interventions available to K-12 students, but it has never been equitably distributed. In Fairfax County, as in most American school systems, personalized academic support remains largely a private good, accessible to families with the time and resources to pay for it. That gap is not static. Private tutoring has grown among wealthy families in recent decades, making public access to equivalent support increasingly vital for less advantaged students to keep pace (Nickow et al., 2024, p. 97). Without deliberate policy, the benefits of emerging AI-powered tutoring tools will follow the same pattern.</p>
+    <p>The obvious alternative, deploying general-purpose tools like ChatGPT as a tutoring layer, does not solve the problem. Teachers are already experimenting with the ChatGPT for Teachers program (Stout, 2026), and the single-vendor efficiency is genuinely appealing. But ChatGPT is hallucination-prone and creates documented academic dishonesty risks (Qadir, 2023). More fundamentally, the same tool students use to learn can be used to complete assignments entirely, and experimental evidence suggests that fully delegating tasks to general-purpose AI reduces evaluation scores by 17%, or roughly two grade levels (Shen &amp; Tamkin, 2026, preprint). The mechanism is directly applicable to K-12 contexts: when students can bypass the learning process, skill formation suffers. As a parent of two FCPS students in the Braddock District and a technologist, I find those risks sufficient to justify restricting general-purpose GenAI in the classroom. The question is what the board does next.</p>
+
+    <div class="stat-strip">
+      <div class="stat-cell">
+        <span class="stat-num">92%</span>
+        <span class="stat-desc">Higher individual learning gain, Korbit full ITS vs. traditional computerized tutoring (95% CI; St-Hilaire et al., 2022, preprint)</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">17%</span>
+        <span class="stat-desc">Reduction in evaluation scores when learners fully delegate tasks to general-purpose GenAI (Shen &amp; Tamkin, 2026, preprint)</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-num">~2 grades</span>
+        <span class="stat-desc">Equivalent skill-level drop from GenAI task delegation, underscoring the skill formation risk in student populations</span>
+      </div>
+    </div>
+
+    <!-- SUMMARY OF CURRENT POLICY AND KNOWLEDGE -->
+    <h2>Summary of Current Policy and Knowledge</h2>
+    <p>Intelligent Tutoring Systems are computer-based instructional systems capable of delivering dialogue-based, personalized educational experiences. One scientifically validated example of ITS is Korbit (St-Hilaire et al., 2022, preprint). The system uses pedagogical techniques to enhance the learning experience of students at scale. If a student solution for a problem is incorrect, it will respond with "one of a dozen different pedagogical interventions to help students arrive at the correct solution" (p. 3). All of these are highly customizable and can adapt to specific curricula and lesson plans, differentiating them from traditional computerized learning experiences deployed by FCPS, such as STMath and Lexia, where the student is challenged with a problem and told if they are right or wrong (no feedback loop). In St-Hilaire et al.'s study, Korbit was set to behave as the traditional systems and compared to the "full experience." When compared, the learning gain for individual students was 92% higher, significant at the 95% confidence level. One limitation warrants acknowledgment: the study population was adult learners, so results cannot be directly extrapolated to preK-12 students.</p>
+
+    <div class="table-vdoe-group">
+    <h3>GenAI versus ITS: A framework for classification</h3>
+    <p>The fundamental policy problem is that FCPS currently lacks a classification framework that distinguishes general-purpose GenAI from purpose-built ITS. The table below makes the distinction concrete along dimensions relevant to board decision-making.</p>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>General-purpose GenAI (e.g., ChatGPT)</th>
+          <th>Intelligent Tutoring Systems (e.g., Korbit)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Risk level</td>
+          <td><span class="tag-hi">High</span> Hallucination-prone; academic dishonesty risk</td>
+          <td><span class="tag-lo">Lower</span> Pedagogically constrained by design</td>
+        </tr>
+        <tr>
+          <td>Skill formation</td>
+          <td>Task delegation reduces scores by ~17%; equivalent to ~2 grade levels (Shen &amp; Tamkin, 2026)</td>
+          <td>Socratic method enforces active learning; student must engage to progress</td>
+        </tr>
+        <tr>
+          <td>Academic integrity</td>
+          <td>Same tool can be used to complete, not just support, assignments</td>
+          <td>Purpose-built; cannot produce assignment answers on student's behalf</td>
+        </tr>
+        <tr>
+          <td>Personalization</td>
+          <td>General; not curriculum-aligned by default</td>
+          <td>Adaptive; aligns to specific curricula, lesson plans, and learning objectives</td>
+        </tr>
+        <tr>
+          <td>Privacy compliance</td>
+          <td>Hallucination and data exposure risks without significant vendor guardrails</td>
+          <td>FERPA/COPPA compliance built into vetting and procurement process</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Policy alignment: Virginia Department of Education (VDOE)</h3>
+    <p>ITS technology is actively aligned with Virginia's Department of Education (VDOE) core principles for AI integration (Virginia Department of Education, n.d.).</p>
+
+    <div class="principles-grid">
+      <div class="principle-card">
+        <h3>Do no harm</h3>
+        <p>From a privacy standpoint, risks are reduced through enforced FERPA and COPPA compliance at the federal level and VCDPA compliance at the state level. The board must account for potential bias and discrimination in ITS training data when vetting solutions.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Augment, not replace humans</h3>
+        <p>ITS is meant to operate as a layer between the district's teaching staff, providing oversight and direction, and the student. Teachers retain instructional authority; the system provides scalable, personalized support between sessions.</p>
+      </div>
+      <div class="principle-card">
+        <h3>Work in partnership</h3>
+        <p>Deploying ITS alongside AI researchers will bring the academic rigor necessary for this new venture, positioning FCPS as a co-awardee for federal research grants through the Institute of Education Sciences.</p>
+      </div>
+    </div>
+    </div>
+
+    <h3>Policy alignment: Washington State OSPI</h3>
+    <p>Washington State's Office of Superintendent for Public Instruction (OSPI) is a peer jurisdiction that has translated similar values into action. Their existing guidance for human-centered AI (Washington Office of Superintendent of Public Instruction, 2024) includes measures that, if adopted by FCPS, would directly enable ITS deployment: explicit categorization that distinguishes general-purpose GenAI from AI tutoring programs (p. 9), and defined governance roles for local education agencies in the vetting, funding, and direction of AI adoption (pp. 34–36). This distinction is critical—it would allow for the integration of ITS in FCPS while keeping tools like ChatGPT restricted. OSPI is partnering with Washington State University's AmplifyGAIN center in a pilot program aimed at the same equity and quality outcomes targeted by this brief for FCPS.</p>
+
+    <!-- POLICY OPTIONS -->
+    <div class="policy-options-anchor">
+      <h2>Policy Options</h2>
+      <div class="policy-options">
+        <div class="option-row">
+          <div class="option-num">1</div>
+          <div class="option-body">
+            <h3>GenAI Classification</h3>
+            <p>The FCPS board must establish a clear distinction between high- and low-risk AI solutions. Without this classification, any subsequent policy action on ITS lacks a principled foundation and risks conflation with existing restrictions on general-purpose AI.</p>
+          </div>
+        </div>
+        <div class="option-row">
+          <div class="option-num">2</div>
+          <div class="option-body">
+            <h3>Community Advisory Committee for AI Alignment</h3>
+            <p>Institute a new district-wide, interdisciplinary, and AI-focused advisory committee to engage the technical and academic communities. The main goal will be to assist FCPS in the deployment of equity-centered AI solutions, ensuring alignment with state and federal-level guidance. An ITS pilot deployment should be the committee's first formal goal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="policy-options policy-options-cont">
+      <div class="option-row" style="padding-bottom: 1.4rem;">
+        <div class="option-num">3</div>
+        <div class="option-body">
+          <h3>ITS Governance Framework</h3>
+          <p>Establish a pre-pilot governance framework covering: compliance with federal and state-level data privacy laws and acceptable use guidance, GenAI-specific data requirements for student interaction logs, and program lifecycle design, as informed by REL Appalachia's pilot study methodology (REL Appalachia at SRI International, 2021).</p>
+        </div>
+      </div>
+      <div class="option-row" style="padding-bottom: 1.4rem;">
+        <div class="option-num">4</div>
+        <div class="option-body">
+          <h3>Academic Partnership Authorization</h3>
+          <p>Authorize a formal academic partnership with a local university to co-design and evaluate an equity-centered ITS pilot program, modeled on OSPI's collaboration with Washington State University. The study should target students and teachers in selected middle schools, with explicit inclusion of Title I schools.</p>
+          <div class="option-risk">Risk: Piloting with middle school students will require COPPA compliance for students under 13. Focusing on high school students would be less restrictive, at the expense of less impactful outcomes—tutoring impact tends to decline across grade levels (Nickow et al., 2024, p. 94), justifying the extra compliance complexity.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <h2 style="page-break-before: always; break-before: always;">Recommendations</h2>
+    <p>FCPS faces a dual challenge: closing the tutoring equity gap and establishing a workable, acceptable use framework for AI tools in preK-12 classrooms. Addressing both requires the board to approve all four policy options as an integrated package, in the order listed below.</p>
+    <ul class="rec-list">
+      <li><div class="rec-num">1</div><div><strong>Discrete classification of GenAI systems</strong> as a basis for determining acceptable use. Without a formal distinction between high- and low-risk AI, the committee formed in step two has no principled framework to work from, and any subsequent ITS authorization remains legally and politically exposed.</div></li>
+      <li><div class="rec-num">2</div><div><strong>Community advisory committee</strong> to ensure tooling alignment and community trust. The committee's first deliverable is to operationalize the classification framework into vetting criteria, giving the governance work in step three a community-validated foundation.</div></li>
+      <li><div class="rec-num">3</div><div><strong>Governance structure</strong> to support a compliant ITS program in the classroom. A pre-pilot framework covering data privacy, student interaction log requirements, and program lifecycle design is what makes it legally and institutionally possible to authorize a partner in step four.</div></li>
+      <li><div class="rec-num">4</div><div><strong>Academic partnership authorization</strong> to secure subject-matter expertise and evaluate federal grant opportunities. The partner co-designs the pilot against the governance framework already in place, and positions FCPS to pursue IES funding on a competitive timeline.</div></li>
+    </ul>
+    <p>This will allow the board to follow precedent from peer jurisdictions and adopt an evidence-based policy package to produce concrete action. The board must accept the underlying risks of deploying AI-enabled tools in middle school populations; the potential to deliver equitable learning gains justifies them, and FCPS has a clear model to follow.</p>
+
+    <!-- IMPLEMENTATION TIMELINE -->
+    <h3 style="margin-top:1.2rem;">Implementation roadmap</h3>
+    <p style="font-size:9.5pt;margin-bottom:0.9rem;">The five milestones below translate board approval into a structured path toward a running pilot. Each milestone is a prerequisite for the next.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-node"><div class="tl-marker">1</div><div class="tl-connector"></div></div>
+        <div class="tl-content"><div class="tl-label">Day 0</div><div class="tl-body">Board votes to approve the four-part package; classification work officially authorized.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node"><div class="tl-marker">2</div><div class="tl-connector"></div></div>
+        <div class="tl-content"><div class="tl-label">Days 1–60</div><div class="tl-body">Community Advisory Committee formed; first deliverable is a ratified ITS classification framework.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node"><div class="tl-marker">3</div><div class="tl-connector"></div></div>
+        <div class="tl-content"><div class="tl-label">Days 60–120</div><div class="tl-body">Governance framework drafted; academic partnership RFP issued to local university partners.</div></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node"><div class="tl-marker">4</div><div class="tl-connector"></div></div>
+        <div class="tl-content"><div class="tl-label">Months 4–6</div><div class="tl-body">Partner selected; pilot design finalized; FERPA, COPPA, and VCDPA compliance review completed.</div></div>
+      </div>
+      <div class="tl-item last">
+        <div class="tl-node"><div class="tl-marker">5</div><div class="tl-connector"></div></div>
+        <div class="tl-content"><div class="tl-label">Year 2</div><div class="tl-body">Pilot launches in selected middle schools, with Title I schools included; evaluation criteria established upfront.</div></div>
+      </div>
+    </div>
+
+    <!-- SUMMARY AND CONCLUSIONS -->
+    <h2>Summary and Conclusions</h2>
+    <p>Enabling ITS in the classroom will provide a pedagogical platform demonstrated to increase learning outcomes at scale. Peer jurisdictions already understand this and have taken decisive action. This is the moment for FCPS to act; further delays will deepen an equity problem already underway.</p>
+    <p>The window for action is narrowing. IES is actively funding ITS pilots through grants like AmplifyGAIN, and early-moving jurisdictions like Washington State are already positioned to shape how this technology develops in K-12 settings. FCPS has a ready-made model to follow, a strong equity rationale to lead with, and the academic partnerships available to execute responsibly. Waiting for the technology to mature further, or for other districts to move first, is not a neutral choice: it is a decision to let the tutoring gap widen while the evidence and the funding are both pointing toward action now.</p>
+
+    <!-- REFERENCES -->
+    <h2>References</h2>
+    <div class="references">
+      <p class="ref-entry">Colleague.ai. (2025, December 15). <em>A multi-lingual, safe, and accessible AI tutor for students.</em> https://www.colleague.ai/ai-for-students/ai-tutor/</p>
+      <p class="ref-entry">Fairfax County School Board. (n.d.). <em>FCPS Forward: AI &amp; the future of learning.</em> Retrieved April 8, 2026, from https://ai.fcps.edu/</p>
+      <p class="ref-entry">Institute of Education Sciences. (2024). <em>AmplifyGAIN: Generative AI for transformative learning.</em> https://ies.ed.gov/use-work/awards/amplifygain-generative-ai-transformative-learning</p>
+      <p class="ref-entry">Nickow, A., Oreopoulos, P., &amp; Quan, V. (2024). The promise of tutoring for PreK–12 learning: A systematic review and meta-analysis of the experimental evidence. <em>American Educational Research Journal, 61</em>(1), 74–107. https://doi.org/10.3102/00028312231208687</p>
+      <p class="ref-entry">Qadir, J. (2023). Engineering education in the era of ChatGPT: Promise and pitfalls of generative AI for education. <em>2023 IEEE Global Engineering Education Conference (EDUCON),</em> 1–9. https://doi.org/10.1109/EDUCON54358.2023.10125121</p>
+      <p class="ref-entry">REL Appalachia at SRI International. (2021). <em>Learning before going to scale: An introduction to conducting pilot studies.</em> Regional Educational Laboratory Appalachia, SRI International. https://ies.ed.gov/rel-appalachia/2025/01/resource-20</p>
+      <p class="ref-entry">Shen, J. H., &amp; Tamkin, A. (2026). <em>How AI impacts skill formation</em> (arXiv:2601.20245). arXiv. https://doi.org/10.48550/arXiv.2601.20245</p>
+      <p class="ref-entry">St-Hilaire, F., Vu, D. D., Frau, A., Burns, N., Faraji, F., Potochny, J., Robert, S., Roussel, A., Zheng, S., Glazier, T., Romano, J. V., Belfer, R., Shayan, M., Smofsky, A., Delarosbil, T., Ahn, S., Eden-Walker, S., Sony, K., Ching, A. O., … Kochmar, E. (2022). <em>A new era: Intelligent tutoring systems will transform online learning for millions</em> (arXiv:2203.03724). arXiv. https://doi.org/10.48550/arXiv.2203.03724</p>
+      <p class="ref-entry">Stout, N. (2026, March). Fairfax school board members push for more detailed policy governing AI usage. <em>FFXNow.</em> https://www.ffxnow.com/2026/03/19/fairfax-school-board-members-push-for-more-details-policy-governing-ai-usage/</p>
+      <p class="ref-entry">Virginia Department of Education. (n.d.). <em>Guidelines for AI integration throughout education in the Commonwealth of Virginia.</em> Retrieved March 21, 2026, from https://www.education.virginia.gov/media/governorvirginiagov/secretary-of-education/pdf/AI-Education-Guidelines.pdf</p>
+      <p class="ref-entry">Washington Office of Superintendent of Public Instruction. (2024, July). <em>Human-centered artificial intelligence in schools.</em> https://ospi.k12.wa.us/student-success/resources-subject-area/human-centered-artificial-intelligence-schools</p>
+    </div>
+
+    <!-- WRITING EXPERIENCE MEMO -->
+    <div class="memo-section">
+      <h2>Writing Experience Memo</h2>
+
+      <p>This is my first time writing a policy brief so there's a lot of learnings to share.</p>
+
+      <h3>Be terse</h3>
+      <p>I tend to add connective sentences that do not pull their weight. Working against that instinct, and using Claude as an editorial check, was a consistent discipline throughout this draft. Further cuts are likely after peer review.</p>
+
+      <h3>Be purposeful</h3>
+      <p>Focusing on a local problem made this genuinely motivating. I intend to submit the final version to the FCPS board and hope to hear back from at least the district's representative. Public school is one of the few institutions my family interacts with daily, and I feel compelled to ensure that AI in education augments the experience for my kids and future generations.</p>
+
+      <h3>GenAI as sounding board</h3>
+      <p>Claude was instrumental in producing polished work, pushing me to think more precisely and write more clearly. I structured the collaboration so that the synthesis and argumentation remained mine throughout, with Claude functioning as an editorial partner rather than a content generator.</p>
+
+      <h3>GenAI as research assistant</h3>
+      <p>Claude was also instrumental in refining the brief's focus and identifying strong supporting sources. One notable gap is the absence of counterpoints to the main argument, though this reflects strategic cuts made to meet deadlines rather than a limitation of the tools. Addressing that gap is a priority for the next iteration.</p>
+    </div>
+
+    <!-- PEER FEEDBACK RESPONSE -->
+    <div class="memo-section">
+      <h2>Peer Feedback Response</h2>
+      <p>Three pieces of peer feedback were received. The table below documents which feedback was addressed, how, and the rationale for any items not adopted.</p>
+
+      <table class="memo-table" style="margin-top: 0.8rem;">
+        <thead>
+          <tr>
+            <th style="width:8%;">Item</th>
+            <th style="width:30%;">Feedback</th>
+            <th style="width:16%;">Decision</th>
+            <th>How it was addressed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Recommendations could be fleshed out with more detail.</td>
+            <td style="color:#1a6b2e;font-weight:600;">Addressed</td>
+            <td>Each of the four recommendations was expanded with a sentence explaining what it unlocks for the next step, making the sequential dependency explicit.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>The brief would benefit from a high-level implementation roadmap showing the board what happens after approval.</td>
+            <td style="color:#1a6b2e;font-weight:600;">Addressed</td>
+            <td>An Implementation Roadmap subsection was added at the end of Recommendations, with five sequenced milestones from Day 0 (board vote) through Year 2 (pilot launch), rendered as a vertical timeline diagram.</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Provide a deeper explanation of why the recommendations should be adopted in order and why that ordering matters.</td>
+            <td style="color:#7a4700;font-weight:600;">Not adopted</td>
+            <td>The ordering rationale is already present in the Policy Options section. Restating it in Recommendations would duplicate content; the unlock sentences added under Feedback 1 partially address this at the recommendation level.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- AI USAGE MEMO -->
+    <div class="memo-section">
+      <h2>AI Usage Memo<sup style="font-size:7.5pt;vertical-align:super;font-family:var(--sans);">1</sup></h2>
+
+      <h3>Overview</h3>
+      <p>For this assignment, I used Claude as a drafting partner and editorial reviewer across four work threads: an initial section-by-section drafting session, a full-document proofreading and refinement pass, a prose compression and layout pass, and a peer feedback response pass. I drove the intellectual direction throughout. Claude served as a structural sounding board, not a content generator. All submitted text was written in my own words.</p>
+      <p>I continued working within the dedicated Claude Project established for this policy brief, which preserved shared context across threads.</p>
+
+      <table class="memo-table" style="margin-top: 0.8rem; margin-bottom: 1.2rem;">
+        <thead>
+          <tr>
+            <th>Thread</th>
+            <th>AI Role</th>
+            <th>What I did independently</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Drafting Support</td>
+            <td>Structural and argumentative feedback per section</td>
+            <td>All drafting, all source integration, selective adoption of suggestions</td>
+          </tr>
+          <tr>
+            <td>Proofreading and Refinements</td>
+            <td>Inconsistency and flow review</td>
+            <td>All correction decisions, all final wording</td>
+          </tr>
+          <tr>
+            <td>Shortening for Impact and Layout</td>
+            <td>Editorial compression feedback; HTML layout generation</td>
+            <td>All compression decisions, cut evaluation against source material, layout direction</td>
+          </tr>
+          <tr>
+            <td>Peer Feedback Response</td>
+            <td>Brainstorming options for addressing feedback; structural and editorial feedback on revisions</td>
+            <td>All revision decisions, all final wording, judgment on which feedback to adopt or decline</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Thread 1: Drafting Support</h3>
+      <p>Chat log: <a href="https://claude.ai/share/2c9fcf2c-84ac-457f-b313-8d5dfa566dca">https://claude.ai/share/2c9fcf2c-84ac-457f-b313-8d5dfa566dca</a></p>
+      <p>I worked section by section, bringing a draft of each to Claude for structural and argumentative feedback before revising independently. The most substantive exchange was on the Executive Summary: Claude noted that the equity argument was undersold and that the closing should sharpen the stakes for the board. I agreed and revised accordingly; the final version closes by framing inaction as the board's responsibility rather than just a missed opportunity. Claude also offered options for placing the positionality disclosure (parent in the Braddock District). I kept it in the Problem Statement, where it closes the section by grounding the equity concern in lived experience.</p>
+      <p><em>Verification steps:</em> All structural feedback was evaluated against the finalized Phase 2 outline before I adopted or rejected any suggested revision.</p>
+
+      <h3>Thread 2: Draft Proofreading and Refinement</h3>
+      <p>Chat log: <a href="https://claude.ai/share/3b6da22f-9351-4fa7-859f-18921e45669a">https://claude.ai/share/3b6da22f-9351-4fa7-859f-18921e45669a</a></p>
+      <p>Once the full draft was complete, I asked Claude to review for conceptual inconsistencies, argument flow, and alignment with the Phase 2 outline and policy brief guidance. The most important finding was a conceptual inconsistency in the Recommendations section, where "GenAI tools" was used as an umbrella term, collapsing the ITS/GenAI distinction that is the brief's central argument. I revised the language to "AI-enabled tools" to preserve that separation throughout. Claude also flagged that the Problem Statement's opening sentence framed restriction as the primary problem before the reader understood why restriction exists, and suggested resequencing to lead with the tutoring gap. I initially kept my original structure, which establishes ChatGPT as a tempting but inadequate alternative before pivoting to its risks. In a subsequent revision pass, however, I revisited that decision and restructured the Problem Statement to open with the equity and access gap, repositioning the GenAI risk content as the "wrong answer" to a problem the reader already understands. On the Summary and Conclusions, Claude noted it was recapping rather than projecting forward. I took that feedback and rewrote the section to emphasize urgency: the narrowing IES funding window, Washington State's head start, and the argument that waiting is not a neutral choice.</p>
+      <p><em>Verification steps:</em> All substantive changes were evaluated against the approved outline and Phase 2 rubric feedback before incorporation. I did not adopt any of Claude's wording directly.</p>
+
+      <h3>Thread 3: Shortening for Impact and Layout</h3>
+      <p>Chat log: <a href="https://claude.ai/share/10d1169e-805a-4cbd-be50-dae96e7f3c4f">https://claude.ai/share/10d1169e-805a-4cbd-be50-dae96e7f3c4f</a></p>
+      <p>In this thread I worked with Claude on two parallel goals: tightening prose for concision and producing an HTML layout with FCPS branding for the final submission. On the editorial side, the most iterative exchange was on the Summary of Current Policy and Knowledge section, specifically the OSPI paragraphs. My drafts were carrying too much connective tissue, and Claude repeatedly pushed me to compress two paragraphs into one by cutting summary clauses and letting the AmplifyGAIN proof point stand as the closing beat. I worked through multiple drafts before landing on a version that protected the two essential details (OSPI's categorization distinction and the IES sub-awardee relationship) without the redundant framing. On layout, Claude produced an HTML rendering of the brief using FCPS brand colors. After an initial two-column design produced poor print output, I asked for a redesign as a single-column layout optimized for content fidelity, with callouts used sparingly. The final version reflects that direction.</p>
+      <p><em>Verification steps:</em> All editorial compression decisions were mine. I evaluated each cut against the source material to confirm no essential evidentiary detail was lost.</p>
+
+      <h3>Thread 4: Peer Feedback Response</h3>
+      <p>Chat log: <a href="https://claude.ai/share/ec382474-d186-4de2-abc6-05929b1dd87a">https://claude.ai/share/ec382474-d186-4de2-abc6-05929b1dd87a</a></p>
+      <p>In this thread I brought three pieces of peer feedback to Claude for brainstorming before making any revision decisions independently. The most substantive exchange concerned the Recommendations section: Claude identified two complementary approaches for addressing Feedback 1 (thin recommendations) — expanding each item inline with a sequential unlock sentence, or collapsing Policy Options and Recommendations into a single section. I selected Option A, the inline expansion, as the lower-risk change that preserved the existing structure. For Feedback 2 (missing implementation roadmap), Claude proposed five milestone beats derived from the sequencing logic already present in the brief; I reviewed and adopted them, and directed the addition of a vertical timeline diagram rendered in the HTML. Feedback 3 (deeper rationale for ordering) I declined to address, on the grounds that the "why" is already present in the Policy Options section and restating it in Recommendations would duplicate content. Claude also drafted the Problem Statement resequencing in this thread, leading with the equity gap rather than ChatGPT, which I had deferred from Thread 2. I reviewed the proposed language, aligned it with my own voice, and adopted the restructuring.</p>
+      <p><em>Verification steps:</em> All revision decisions were mine. I reviewed Claude's brainstorming options against the peer feedback text before selecting an approach, and evaluated all wording against the existing document before approving changes.</p>
+
+      <div class="footnote">
+        <sup>1</sup> Drafted with Claude (Sonnet 4.6), consistent with the Level 2 AI use policy for this assignment. Session summaries were reconstructed from linked chat logs and cross-checked for accuracy. All editorial decisions and final wording are my own (threads: <a href="https://claude.ai/share/13c7a486-44b2-4691-aa8e-eabc061f5354">https://claude.ai/share/13c7a486-44b2-4691-aa8e-eabc061f5354</a>; <a href="https://claude.ai/share/ec382474-d186-4de2-abc6-05929b1dd87a">https://claude.ai/share/ec382474-d186-4de2-abc6-05929b1dd87a</a>).
+      </div>
+    </div>
+
+  </div><!-- /brief-body -->
+
+  <div class="brief-footer">
+    <span><strong>A Tutor for Every Student</strong> · Policy Brief, First Draft · April 2026</span>
+    <span>Yaisiel O. Torres-Vazquez · Purdue University · SCLA-52200</span>
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>
