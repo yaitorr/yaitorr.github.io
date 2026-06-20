@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Risk &amp; Impact Assessment Proposal — Colleague.ai Pilot, FCPS</title>
+
+  <!-- ── SEO / Description ── -->
+  <meta name="description" content="An AI-RIA framework proposal for a Colleague.ai pilot in Fairfax County Public Schools, anchored in NIST AI RMF and IES pilot methodology. Addresses equity, privacy, and community trust.">
+  <meta name="author" content="Yaisiel O. Torres-Vazquez">
+  <meta name="theme-color" content="#2b4a6b">
+  <link rel="canonical" href="https://www.yaitorr.me/docs/ai-ria/">
+
+  <!-- ── Favicon ── -->
+  <link rel="icon" href="../assets/images/favicon/favicon.ico" sizes="any">
+  <link rel="icon" href="../assets/images/favicon/favicon-32x32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../assets/images/favicon/favicon-16x16.png" type="image/png" sizes="16x16">
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Yaisiel O. Torres-Vazquez">
+  <meta property="og:title" content="AI Risk &amp; Impact Assessment Proposal — Colleague.ai Pilot, FCPS">
+  <meta property="og:description" content="A hybrid AI-RIA framework for a Colleague.ai pilot in Fairfax County Public Schools, anchored in NIST AI RMF and IES pilot methodology. Addresses equity, privacy, and community trust.">
+  <meta property="og:url" content="https://www.yaitorr.me/docs/ai-ria/">
+  <meta property="og:image" content="https://www.yaitorr.me/assets/images/og-image-ai-ria.png">
+  <meta property="og:image:secure_url" content="https://www.yaitorr.me/assets/images/og-image-ai-ria.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AI Risk and Impact Assessment Proposal — Colleague.ai Pilot, FCPS. A hybrid AI-RIA framework anchored in NIST AI RMF and IES pilot methodology.">
+  <meta property="article:author" content="Yaisiel O. Torres-Vazquez">
+  <meta property="article:published_time" content="2026-06-21">
+  <meta property="article:section" content="Academic Paper">
+  <meta property="article:tag" content="AI">
+  <meta property="article:tag" content="Education">
+  <meta property="article:tag" content="FCPS">
+  <meta property="article:tag" content="AI Risk Assessment">
+
+  <!-- ── Twitter / X Card ── -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Risk &amp; Impact Assessment Proposal — Colleague.ai Pilot, FCPS">
+  <meta name="twitter:description" content="A hybrid AI-RIA framework for a Colleague.ai pilot in FCPS, anchored in NIST AI RMF and IES pilot methodology.">
+  <meta name="twitter:image" content="https://www.yaitorr.me/assets/images/og-image-ai-ria.png">
+  <meta name="twitter:image:alt" content="AI Risk and Impact Assessment Proposal — Colleague.ai Pilot, FCPS.">
+
+  <style>
+    /* ── FONTS (local woff2) ── */
+    @font-face {
+      font-family: 'EB Garamond';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../assets/fonts/eb-garamond-latin-400-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../assets/fonts/eb-garamond-latin-400-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('../assets/fonts/eb-garamond-latin-500-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      font-style: italic;
+      font-weight: 500;
+      font-display: swap;
+      src: url('../assets/fonts/eb-garamond-latin-500-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'EB Garamond';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('../assets/fonts/eb-garamond-latin-600-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: url('../assets/fonts/cormorant-garamond-latin-300-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 300;
+      font-display: swap;
+      src: url('../assets/fonts/cormorant-garamond-latin-300-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../assets/fonts/cormorant-garamond-latin-400-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../assets/fonts/cormorant-garamond-latin-400-italic.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('../assets/fonts/cormorant-garamond-latin-600-normal.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Source Code Pro';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('../assets/fonts/source-code-pro-latin-400-normal.woff2') format('woff2');
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink:           #1a1a18;
+      --ink-secondary: #4a4a46;
+      --ink-muted:     #7a7a74;
+      --rule:          #c8c6be;
+      --rule-light:    #e4e2da;
+      --paper:         #faf9f6;
+      --accent:        #2b4a6b;
+      --accent-wash:   #eef1f4;
+
+      --font-body:    'EB Garamond', 'Georgia', serif;
+      --font-display: 'Cormorant Garamond', 'Georgia', serif;
+      --font-mono:    'Source Code Pro', 'Courier New', monospace;
+
+      --page-width:   8.5in;
+      --margin-outer: 0.75in;
+      --margin-inner: 0.75in;
+    }
+
+    html {
+      background: #d8d6ce;
+      font-size: 11pt;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.5;
+      max-width: var(--page-width);
+      margin: 0.5in auto;
+      padding: var(--margin-outer) var(--margin-inner);
+      box-shadow: 0 2px 24px rgba(0,0,0,0.18);
+    }
+
+    /* ─── PRINT ─── */
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.62in 0.7in 0.55in 0.7in;
+      }
+      html { background: none; font-size: 9.8pt; }
+      body { max-width: none; margin: 0; padding: 0; box-shadow: none; background: white; }
+      h2, h3 { page-break-after: avoid; break-after: avoid; }
+      p { orphans: 3; widows: 3; }
+      table { page-break-inside: auto; break-inside: auto; }
+      thead { display: table-header-group; }
+      tr { page-break-inside: avoid; break-inside: avoid; }
+      .table-wrap { page-break-inside: auto; }
+      .references { page-break-before: always; break-before: always; }
+      .memo-section { page-break-inside: avoid; break-inside: avoid; }
+      a { color: var(--ink) !important; text-decoration: none !important; }
+      .running-head { display: block; }
+      .ref-list li { page-break-inside: avoid; break-inside: avoid; }
+    }
+
+    /* ─── RUNNING HEAD (print only) ─── */
+    .running-head {
+      display: none;
+      font-family: var(--font-body);
+      font-size: 8.5pt;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-align: right;
+      margin-bottom: 0.35in;
+    }
+
+    /* ─── DOCUMENT HEADER ─── */
+    .doc-header {
+      text-align: center;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 0.75pt solid var(--ink);
+    }
+    .doc-header .course-line {
+      font-family: var(--font-body);
+      font-size: 8.3pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.35rem;
+    }
+    .doc-header h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 19pt;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+      letter-spacing: -0.01em;
+    }
+    .doc-header .subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 10.5pt;
+      color: var(--ink-secondary);
+      margin-bottom: 0.55rem;
+    }
+
+    /* ─── META BLOCK ─── */
+    .meta-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-top: 0.5rem;
+      font-size: 8.3pt;
+      color: var(--ink-secondary);
+      border-top: 0.5pt solid var(--rule);
+      padding-top: 0.4rem;
+    }
+    .meta-block .meta-item { text-align: center; }
+    .meta-block .meta-item:not(:last-child) { border-right: 0.5pt solid var(--rule); }
+    .meta-block .meta-label {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 7.5pt;
+      color: var(--ink-muted);
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ─── SECTION HEADINGS ─── */
+    h2.section-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 12.5pt;
+      color: var(--ink);
+      margin-top: 0.65rem;
+      margin-bottom: 0.26rem;
+      letter-spacing: -0.01em;
+    }
+    h2.section-title:first-of-type { margin-top: 0; }
+    h3.subsection-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 11pt;
+      color: var(--ink-secondary);
+      margin-top: 0.55rem;
+      margin-bottom: 0.24rem;
+    }
+
+    /* ─── BODY TEXT ─── */
+    .section-body p {
+      font-size: 9.7pt;
+      line-height: 1.37;
+      color: var(--ink);
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      margin-bottom: 0.32em;
+      text-indent: 0;
+    }
+    .section-body p + p {
+      text-indent: 1.4em;
+      margin-top: 0;
+    }
+
+    /* ─── STANDARDS LIST ─── */
+    .standards-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.35rem 0 0.6rem;
+    }
+    .standards-list li {
+      position: relative;
+      padding-left: 1.2em;
+      margin-bottom: 0.35rem;
+      font-size: 9.8pt;
+      line-height: 1.4;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    .standards-list li::before {
+      content: "\2014";
+      position: absolute;
+      left: 0;
+      color: var(--ink-muted);
+    }
+    .standards-list strong { font-weight: 600; color: var(--ink); }
+
+    /* ─── DATA TABLES ─── */
+    .table-wrap { margin: 0.35rem 0 0.5rem; }
+    .table-label {
+      font-family: var(--font-body);
+      font-size: 7.6pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.3rem;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.9pt;
+      line-height: 1.32;
+    }
+    table.data-table thead th {
+      text-align: left;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 7.9pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-secondary);
+      background: var(--accent-wash);
+      border-top: 0.75pt solid var(--ink);
+      border-bottom: 0.75pt solid var(--ink);
+      padding: 0.28rem 0.5rem;
+    }
+    table.data-table tbody td {
+      padding: 0.3rem 0.5rem;
+      border-bottom: 0.5pt solid var(--rule-light);
+      vertical-align: top;
+      text-align: left;
+      color: var(--ink);
+    }
+    table.data-table tbody tr:last-child td { border-bottom: 0.75pt solid var(--ink); }
+    table.data-table td.col-label {
+      font-style: italic;
+      color: var(--ink-secondary);
+      white-space: nowrap;
+    }
+
+    /* ─── REFERENCES ─── */
+    .references { margin-top: 0; }
+    .references h2.section-title {
+      text-align: center;
+      border-bottom: none;
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+    }
+    .ref-list { list-style: none; padding: 0; }
+    .ref-list li {
+      padding-left: 2em;
+      text-indent: -2em;
+      margin-bottom: 0.4rem;
+      font-size: 9.4pt;
+      line-height: 1.4;
+      color: var(--ink);
+      text-align: left;
+    }
+    .ref-list a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    @media screen { .ref-list a:hover { text-decoration: underline; } }
+
+    /* ─── AI MEMO ─── */
+    .memo-section {
+      margin-top: 1.3rem;
+      padding-top: 0.7rem;
+      border-top: 0.5pt solid var(--rule-light);
+    }
+    .memo-section .memo-label {
+      font-family: var(--font-body);
+      font-size: 8pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.4rem;
+    }
+    .memo-section p {
+      font-size: 8.6pt;
+      line-height: 1.42;
+      color: var(--ink-secondary);
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      margin-bottom: 0.45em;
+    }
+    .memo-section a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    @media screen { .memo-section a:hover { text-decoration: underline; } }
+
+    /* ─── FOOTER ─── */
+    .doc-footer {
+      margin-top: 0.8rem;
+      padding-top: 0.4rem;
+      border-top: 0.5pt solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      font-size: 7.6pt;
+      color: var(--ink-muted);
+      letter-spacing: 0.03em;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    /* ─── MOBILE / RESPONSIVE ─── */
+    @media screen and (max-width: 900px) {
+      html {
+        background: var(--paper);
+        font-size: 12pt;
+      }
+      body {
+        margin: 0;
+        padding: 1.5rem 1.2rem;
+        max-width: 100%;
+        box-shadow: none;
+      }
+      .meta-block {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .meta-block .meta-item {
+        text-align: left;
+        padding: 0.3rem 0;
+      }
+      .meta-block .meta-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 0.5pt solid var(--rule);
+        padding-bottom: 0.4rem;
+      }
+      .meta-block .meta-label { display: inline; margin-right: 0.3em; }
+      .section-body p {
+        font-size: 11pt;
+        line-height: 1.6;
+        text-align: left;
+        hyphens: none;
+        -webkit-hyphens: none;
+      }
+      .section-body p + p { text-indent: 0; margin-top: 0.6em; }
+      .standards-list li {
+        font-size: 11pt;
+        line-height: 1.6;
+        text-align: left;
+        hyphens: none;
+        -webkit-hyphens: none;
+      }
+      .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-left: -1.2rem;
+        margin-right: -1.2rem;
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+      }
+      table.data-table {
+        font-size: 9.5pt;
+        min-width: 480px;
+      }
+      table.data-table td.col-label { white-space: normal; }
+      .doc-footer {
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 8pt;
+      }
+      h2.section-title { font-size: 14pt; }
+      h3.subsection-title { font-size: 12pt; }
+      .doc-header h1 { font-size: 17pt; }
+      .ref-list li {
+        font-size: 10pt;
+        line-height: 1.55;
+      }
+      .memo-section p {
+        font-size: 9.5pt;
+        text-align: left;
+        hyphens: none;
+        -webkit-hyphens: none;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      body { padding: 1.1rem 1rem; }
+      .doc-header h1 { font-size: 15pt; }
+      .doc-header .subtitle { font-size: 10pt; }
+      .doc-header .course-line { font-size: 7.5pt; }
+      h2.section-title { font-size: 13pt; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="running-head">SCLA 521 — AI-RIA Proposal &nbsp;&nbsp;&nbsp; Colleague.ai Pilot, FCPS</div>
+
+<!-- DOCUMENT HEADER -->
+<header class="doc-header">
+  <p class="course-line">SCLA 521 &nbsp;·&nbsp; Purdue University &nbsp;·&nbsp; Master of Science in Artificial Intelligence</p>
+  <h1>AI Risk and Impact Assessment (AI-RIA) Proposal</h1>
+  <p class="subtitle">A Pilot Framework for Colleague.ai in Fairfax County Public Schools</p>
+  <div class="meta-block">
+    <div class="meta-item">
+      <span class="meta-label">Submitted by</span>
+      <span>Yaisiel (Yai) Torres Vazquez</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Instructor</span>
+      <span>Prof. Alexandra Wood</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Date</span>
+      <span>June 21, 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- EXECUTIVE SUMMARY -->
+<h2 class="section-title">Executive Summary</h2>
+<div class="section-body">
+  <p>Generative AI (GenAI) has the potential to unlock 21st century education. Teachers using tools like ChatGPT self-report significant time savings (Gallup, Inc., 2025), freeing time to reinvest in their classroom (higher-quality instruction and educational experiences), while avoiding overtime. However, given the risks of general-purpose GenAI (Qadir, 2023), and harms already being reported (Merod, 2026), FCPS must opt to deploy purpose-built educational technology such as Colleague.ai at a measured pace. It is their duty to develop a human-centered pilot program, calibrated by the proposed AI Risk and Impact Assessment (AI-RIA). This approach will protect the personal freedoms of all its participants, help regain the community's trust in edtech, and, more importantly, ensure the safety and well-being of children.</p>
+</div>
+
+<!-- PRODUCT OVERVIEW -->
+<h2 class="section-title">Product Overview: AI as Educational Infrastructure</h2>
+<div class="section-body">
+  <p>Colleague.ai pairs teacher-facing instructional tools (lesson planning, grading, IEP and multilingual learner support) with a purpose-built tutoring layer for students and acceptance and alignment analytics for school and district leadership. Its primary goal is to leverage generative AI models trained by researchers, classroom teachers, and experts on instruction to augment teacher performance at scale, increasing teachers' effectiveness in the classroom while removing the institutional friction common to large, diverse organizations such as the Fairfax County Public School system (FCPS). In doing so, it is meant to become critical educational infrastructure, enabling a seamless flow of information across organizational tiers (student, teacher, admin, leadership) and maintaining alignment with FCPS's current priorities.</p>
+</div>
+
+<!-- JUSTIFICATION -->
+<h2 class="section-title">Justification for AI Risk and Impact Assessment</h2>
+<div class="section-body">
+  <p>Colleague.ai's design is backed by research on teacher-driven, instructional design methodology (Sarkar et al., 2025), and continues evolving through federally funded research (Institute of Education Sciences, 2024). However, the myriad detrimental effects to a person's cognitive skills (Shen &amp; Tamkin, 2026), and minorities' freedom of expression (Miao &amp; Holmes, 2023) — in addition to the tool's potential for student-driven misuse, and academic gaslighting via its hallucinatory tendencies (Maiberg, 2026; Qadir, 2023) — makes it imperative for FCPS to engage in a comprehensive AI Risk and Impact Assessment (AI-RIA). Not just to assuage the increasing community revolt against educational tech (Kingkade, 2026), but also to present teachers and other stakeholders with evidence-based information on the well-substantiated risks and benefits of the technology, as it relates to the broad and culturally diverse population they serve (Fairfax County Public Schools, n.d.), and their own personal freedoms.</p>
+</div>
+
+<!-- AI LIFECYCLE STAGE -->
+<h2 class="section-title">AI Lifecycle Stage</h2>
+<div class="section-body">
+  <p>Colleague.ai's own development is centered on Washington state school districts, where it is currently undergoing verification and validation through IES-funded research (Institute of Education Sciences, 2024). FCPS, however, has not yet adopted the tool, and their governance of GenAI tooling is only now catching up: the Board and administration are moving towards effective AI policy (Stout, 2026), including a multilateral Educational Technology Review Committee (ETRC) tasked with "evaluating, piloting, scaling, and sunsetting educational technology tools..." (Frisch &amp; Dannan, 2026, p. 5). This places FCPS in their own, distinct verification and validation stage of the AI lifecycle (Mäntymäki et al., 2022, p. 9) — one informed by a controlled pilot, conducted under IES standards (REL Appalachia at SRI International, 2021), that the AI-RIA itself directly shapes, confirming whether Colleague.ai's results in Washington hold for FCPS's own student population before any district-wide deployment.</p>
+</div>
+
+<!-- RECOMMENDED FRAMEWORK -->
+<h2 class="section-title">Recommended Impact Assessment Framework</h2>
+<div class="section-body">
+  <p>FCPS must pursue a hybrid assessment, anchored in the NIST AI RMF (National Institute of Standards and Technology [NIST], 2023) and executed through the practical, domain-aligned guidance of the EdTech Evolved AI Impact Assessment Template (Jennings, 2024). This approach will allow FCPS to categorize risks of harm to people, the organization, and the learning environment identified by the NIST AI RMF, through a series of calibrated questions.</p>
+
+  <h3 class="subsection-title">IES Pilot Lifecycle and AI-RIA Mappings</h3>
+  <p>IES's seven-phase pilot model (REL Appalachia at SRI International, 2021) maps cleanly onto AI-RIA inputs, as shown below:</p>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <colgroup>
+        <col style="width: 28%;">
+        <col style="width: 72%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Pilot Lifecycle Phase</th>
+          <th>AI-RIA Inputs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">Roles and responsibilities</td>
+          <td>Help FCPS identify and engage relevant AI actors (domain experts, community members, etc.) based on risk and potential for impact, negative or positive.</td>
+        </tr>
+        <tr>
+          <td class="col-label">Study questions and planning</td>
+          <td>Prioritize AI trustworthiness measures (safety, fairness, and transparency) over shallow productivity metrics.</td>
+        </tr>
+        <tr>
+          <td class="col-label">Sample identification and recruiting</td>
+          <td>Secure parental consent and cultivate trust; recruit a diverse population sample (Title I, MLLs, etc.), and protect participants from known risks of bias and threats to personal freedoms.</td>
+        </tr>
+        <tr>
+          <td class="col-label">Data collection and analysis</td>
+          <td>Comply with federal and state law, require both quantitative and qualitative metrics, and set post-deployment monitoring.</td>
+        </tr>
+        <tr>
+          <td class="col-label">Conclusion and next steps</td>
+          <td>Provide a nuanced view on results and recorded behaviors; foster multilateral discussions and decision-making; drive continued improvement if scaling is decided.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ADDITIONAL STANDARDS -->
+<h2 class="section-title">Additional Standards, Law and Regulations</h2>
+<div class="section-body">
+  <p>Colleague.ai is already compliant with GDPR, COPPA/FERPA, and SOC2 (Colleague.ai, 2026). While this demonstrates accountability, FCPS should treat it as a floor, not a ceiling — GenAI's rapid evolution continuously introduces novel risks. Two additional resources are critical during the pilot:</p>
+  <ul class="standards-list">
+    <li><strong>UNESCO's Guidance for generative AI in education and research (Miao &amp; Holmes, 2023):</strong> Grounds AI RMF actors in an education context and equips FCPS with internationally recognized policy options for governing the pilot and beyond.</li>
+    <li><strong>GUARD Act:</strong> Bipartisan legislation pending Senate floor action that would ban AI companions from interacting with minors due to mental health risks (Merod, 2026). FCPS should verify Colleague.ai's tutoring chatbot complies before scaling.</li>
+  </ul>
+</div>
+
+<!-- SUPPORTING AI ACTORS -->
+<h2 class="section-title">Supporting AI Actors</h2>
+<div class="section-body">
+  <p>Following NIST's AI RMF, and Miao &amp; Holmes GenAI guidelines for greater domain fidelity, we can identify three main actors:</p>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <colgroup>
+        <col style="width: 17%;">
+        <col style="width: 19%;">
+        <col style="width: 64%;">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>AI Actor</th>
+          <th>Main Function</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="col-label">FCPS Admin and Board</td>
+          <td>Govern</td>
+          <td>Finalize FCPS AI policy, identify community priorities in collaboration with the ETRC, secure community buy-in and parental consent.</td>
+        </tr>
+        <tr>
+          <td class="col-label">School administrators</td>
+          <td>Operations</td>
+          <td>Provide teacher training, liaise with vendors and parents, validate pedagogical and district-priority alignment through collected metrics, and keep humans in the loop.</td>
+        </tr>
+        <tr>
+          <td class="col-label">Teachers</td>
+          <td>Test, evaluation, verification, and validation</td>
+          <td>Validate benefits of AI-augmented lesson plans and grading support, promote AI literacy among students and parents; monitor risk and impact to students and the classroom environment.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- CONCLUSIONS -->
+<h2 class="section-title">Conclusions and Business Value</h2>
+<div class="section-body">
+  <p>Colleague.ai's "AI as education infrastructure" approach to GenAI can unlock benefits for FCPS at cost and scale. It has the potential to reduce institutional friction and augment teachers' capacity to serve MLL students, freeing up time for higher-quality instruction overall. This could ultimately allow teachers to experiment with novel, civic-oriented learning experiences — community-project-based learning, learning by teaching the chatbot, policy brief synthesis, civic hackathons, and more.</p>
+  <p>However, FCPS must go beyond potential benefits and hype to diligently assess and validate the tool. The proposed hybrid AI-RIA, paired with a human-centered pilot, lets the district meet that duty: it provides the transparency and accountability controls needed to protect personal freedoms, while creating space for the constructive community dialogue FCPS currently lacks. Taken together, these are measured steps toward renovating community trust and unlocking AI-augmented education for the 21st century.</p>
+</div>
+
+<!-- REFERENCES -->
+<section class="references">
+  <h2 class="section-title">References</h2>
+  <ol class="ref-list">
+    <li>Colleague.ai. (2026, May 2). <em>A comprehensive AI in education platform, built by research</em> [Product Page]. Colleague.ai. <a href="https://www.colleague.ai/ai-for-educators/ai-in-education/">https://www.colleague.ai/ai-for-educators/ai-in-education/</a></li>
+    <li>Fairfax County Public Schools. (n.d.). <em>About FCPS | Fairfax County Public Schools</em>. Retrieved June 8, 2026, from <a href="https://www.fcps.edu/about-fcps">https://www.fcps.edu/about-fcps</a></li>
+    <li>Frisch, K., &amp; Dannan, T. (2026, April 21). <em>Forum topic request: Creation of the Educational Technology Review Committee</em>. Fairfax County Public Schools. <a href="https://go.boarddocs.com/vsba/fairfax/Board.nsf/goto?open&amp;id=867SBU2A6F6A">https://go.boarddocs.com/vsba/fairfax/Board.nsf/goto?open&amp;id=867SBU2A6F6A</a></li>
+    <li>Gallup, Inc. (2025). <em>Teaching for tomorrow: Unlocking six weeks a year with AI</em>. Walton Family Foundation and Gallup. <a href="https://nextgeninsights.waltonfamilyfoundation.org/wp-content/uploads/2025/06/Teachers_AI_Report.pdf">https://nextgeninsights.waltonfamilyfoundation.org/wp-content/uploads/2025/06/Teachers_AI_Report.pdf</a></li>
+    <li>Institute of Education Sciences. (2024). <em>AmplifyGAIN: Generative AI for transformative learning</em>. <a href="https://ies.ed.gov/use-work/awards/amplifygain-generative-ai-transformative-learning">https://ies.ed.gov/use-work/awards/amplifygain-generative-ai-transformative-learning</a></li>
+    <li>Jennings, J. (2024, March 18). The AI impact assessment template for K-12 schools. <em>eSpark</em>. <a href="https://www.esparklearning.com/blog/ai-impact-assessment-template-for-k-12-schools/">https://www.esparklearning.com/blog/ai-impact-assessment-template-for-k-12-schools/</a></li>
+    <li>Kingkade, T. (2026, May 12). The revolt against i-Ready: Private equity-backed software faces parent, teacher and student fury. <em>NBC News</em>. <a href="https://www.nbcnews.com/news/education/iready-school-software-faces-parent-teacher-student-fury-rcna342850">https://www.nbcnews.com/news/education/iready-school-software-faces-parent-teacher-student-fury-rcna342850</a></li>
+    <li>Maiberg, E. (2026, February 17). Students are being treated like guinea pigs: Inside an AI-powered private school. <em>404 Media</em>. <a href="https://www.404media.co/students-are-being-treated-like-guinea-pigs-inside-an-ai-powered-private-school/">https://www.404media.co/students-are-being-treated-like-guinea-pigs-inside-an-ai-powered-private-school/</a></li>
+    <li>Mäntymäki, M., Minkkinen, M., Birkstedt, T., &amp; Viljanen, M. (2022). <em>Putting AI ethics into practice: The hourglass model of organizational AI governance</em> (arXiv:2206.00335). arXiv. <a href="https://doi.org/10.48550/arXiv.2206.00335">https://doi.org/10.48550/arXiv.2206.00335</a></li>
+    <li>Merod, A. (2026, May 4). Proposal to ban AI companions for minors advances in Senate. <em>K-12 Dive</em>. <a href="https://www.k12dive.com/news/proposal-to-ban-ai-companions-for-minors-advances-in-senate/819239/">https://www.k12dive.com/news/proposal-to-ban-ai-companions-for-minors-advances-in-senate/819239/</a></li>
+    <li>Miao, F., &amp; Holmes, W. (2023). <em>Guidance for generative AI in education and research</em>. UNESCO. <a href="https://doi.org/10.54675/EWZM9535">https://doi.org/10.54675/EWZM9535</a></li>
+    <li>National Institute of Standards and Technology. (2023). <em>Artificial intelligence risk management framework (AI RMF 1.0)</em> (NIST AI 100-1). U.S. Department of Commerce. <a href="https://doi.org/10.6028/NIST.AI.100-1">https://doi.org/10.6028/NIST.AI.100-1</a></li>
+    <li>Qadir, J. (2023). Engineering education in the era of ChatGPT: Promise and pitfalls of generative AI for education. <em>2023 IEEE Global Engineering Education Conference (EDUCON)</em>, 1–9. <a href="https://doi.org/10.1109/EDUCON54358.2023.10125121">https://doi.org/10.1109/EDUCON54358.2023.10125121</a></li>
+    <li>REL Appalachia at SRI International. (2021). <em>Learning before going to scale: An introduction to conducting pilot studies</em>. Regional Educational Laboratory Appalachia, SRI International. <a href="https://ies.ed.gov/rel-appalachia/2025/01/resource-20">https://ies.ed.gov/rel-appalachia/2025/01/resource-20</a></li>
+    <li>Sarkar, S., Liu, A., Shapiro, R. B., &amp; Sun, M. (2025). Collaborative and adaptive learning: Designing AI educational systems with and for educators. In A. Rajala, A. Cortez, R. Hofmann, A. Jornet, H. Lotz-Sisitka, &amp; L. Markauskaite (Eds.), <em>Proceedings of the 19th international conference of the learning sciences (ICLS 2025)</em> (pp. 3150–3152). International Society of the Learning Sciences. <a href="https://doi.org/10.22318/icls2025.349240">https://doi.org/10.22318/icls2025.349240</a></li>
+    <li>Shen, J. H., &amp; Tamkin, A. (2026). <em>How AI impacts skill formation</em> (arXiv:2601.20245). arXiv. <a href="https://doi.org/10.48550/arXiv.2601.20245">https://doi.org/10.48550/arXiv.2601.20245</a></li>
+    <li>Stout, N. (2026, March 19). Fairfax school board members push for more detailed policy governing AI usage. <em>FFXNow</em>. <a href="https://www.ffxnow.com/2026/03/19/fairfax-school-board-members-push-for-more-details-policy-governing-ai-usage/">https://www.ffxnow.com/2026/03/19/fairfax-school-board-members-push-for-more-details-policy-governing-ai-usage/</a></li>
+  </ol>
+</section>
+
+<!-- AI USAGE MEMO -->
+<section class="memo-section">
+  <p class="memo-label">AI Usage Memo</p>
+  <p>Claude (Anthropic, claude.ai) was used throughout the drafting of this proposal in a manner consistent with Level 2 AI-Assisted Editing. All original content — including the thesis, arguments, source selection, structural decisions, and primary drafting of each section — was authored independently. Claude's role was limited to grammar and mechanics review, APA 7 formatting verification, fact-checking of cited claims against primary sources, and targeted suggestions to improve clarity, sentence-level expression, and length compression against the assignment's two-page constraint. In every instance, suggestions were evaluated and either accepted, modified, or rejected at the author's discretion before being incorporated into the final draft.</p>
+  <p>This workflow reflects the author's established learning approach: AI as augmentation, not replacement. The author wrote first; Claude refined. No AI-generated arguments, evidence, or original analysis appear in the submitted work. All sources were independently identified, evaluated, and cited by the author. The full AI chat log for this assignment is available for transparency: <a href="https://claude.ai/share/f5f67e92-7ecf-43ed-841b-d7adb075872d">https://claude.ai/share/f5f67e92-7ecf-43ed-841b-d7adb075872d</a></p>
+</section>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <span>SCLA 521 — Purdue University</span>
+  <span>AI-RIA Proposal &nbsp;·&nbsp; Colleague.ai Pilot, FCPS</span>
+  <span>June 21, 2026</span>
+</footer>
+
+</body>
+</html>
